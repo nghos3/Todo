@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TodoAdd from './components/todoAdd1';
-//import DisplayList from './components/displayList';
+
 
 class App extends Component {
   render() {

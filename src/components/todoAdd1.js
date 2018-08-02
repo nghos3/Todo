@@ -1,5 +1,5 @@
 import React, {Component} from 'react'; 
-
+import DisplayList from './displayList';
 class TodoAdd extends Component 
 {    constructor(props)
     {
@@ -9,7 +9,6 @@ class TodoAdd extends Component
     }
         handleSubmit(e){
             
-            console.log(this.inp.value);
             if(this.inp.value !== ""){
                 const obj = {key:Date.now(),value:this.inp.value}
             this.setState(prevState => ({
@@ -17,7 +16,7 @@ class TodoAdd extends Component
             }))}
             this.inp.value='';
             e.preventDefault();
-            console.log(this.state.val);
+        
         }
     render(){
         return(
@@ -26,14 +25,11 @@ class TodoAdd extends Component
             <input type="text" ref={a => (this.inp = a)}/>
             <button type="submit">add</button>
             </form>
+            <DisplayList items={this.state.val}/>
             </div>
         );
     }
-    componentDidUpdate(){
-        return(
-        console.log(this.state.val)
-        );}
-   
+
 }
 
 export default TodoAdd;
